@@ -6,5 +6,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angularclient';
+  title: string;
+  isGame: boolean;
+
+  constructor() {
+    this.title = 'THE GAME';
+    this.isGame = false;
+  }
+
+  startGame() {
+    this.isGame = true;
+  }
+
+  endGame() {
+    this.isGame = false;
+  }
 }

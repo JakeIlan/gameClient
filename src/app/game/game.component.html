@@ -1,0 +1,35 @@
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Score</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let player of players">
+        <td>{{ player.num }}</td>
+        <td>{{ player.name }}</td>
+        <td>{{ player.score }}</td>
+      </tr>
+      </tbody>
+    </table>
+    <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+      <div class="form-group">
+        <label for="name">Scores for {{nextPlayer?.name}}#{{nextPlayer?.num}}</label>
+        <input type="number" [(ngModel)]="score"
+               class="form-control"
+               id="name"
+               name="score"
+               placeholder="Enter score"
+               required #name="ngModel">
+      </div>
+      <div [hidden]="!name.pristine" class="alert alert-warning">Scores are required</div>
+      <button type="submit" [disabled]="!userForm.form.valid"
+              class="btn btn-info">Send scores
+      </button>
+    </form>
+  </div>
+</div>

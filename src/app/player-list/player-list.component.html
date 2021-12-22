@@ -1,0 +1,25 @@
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Score</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let player of players">
+        <td>{{ player.num }}</td>
+        <td>{{ player.name }}</td>
+        <td>
+          {{ player.score }}
+          <button type="button"  class="btn btn-outline-danger btn-sm float-right" (click)="deletePlayer(player)">
+            Delete
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
